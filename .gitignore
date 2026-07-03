@@ -1,0 +1,17 @@
+# Pliki tymczasowe Microsoft Excel
+~$*.xlsx
+~$*.xlsm
+~$*.xls
+
+# Kopie i pliki tymczasowe
+*.tmp
+*.bak
+*.autosave
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Pliki dzienników
+*.log
