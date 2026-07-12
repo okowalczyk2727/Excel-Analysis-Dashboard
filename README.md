@@ -1,6 +1,6 @@
 # Analiza sprzedaży i budżetu w Excelu
 
-![Dashboard projektu](screenshots/dashboard-interaktywny.png)
+![Dashboard projektu](screenshots/dashboard.png)
 
 Projekt przedstawia pełny proces pracy z danymi sprzedażowymi w Excelu: od surowego, celowo zabrudzonego pliku, przez transformacje Power Query i model Power Pivot, po miary DAX, tabele przestawne oraz interaktywny dashboard.
 
