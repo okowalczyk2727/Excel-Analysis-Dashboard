@@ -37,11 +37,11 @@ W danych znajduje się **187 zgłoszeń** o łącznej wartości ponad **132 tys.
 
 Najczęstsze powody zgłoszeń:
 
-1. zmiana decyzji — 34,
-2. wadliwy produkt — 32,
-3. błędny rozmiar lub model — 32,
-4. uszkodzenie w transporcie — 30,
-5. opóźniona dostawa — 29.
+1. zmiana decyzji - 34,
+2. wadliwy produkt - 32,
+3. błędny rozmiar lub model - 32,
+4. uszkodzenie w transporcie - 30,
+5. opóźniona dostawa - 29.
 
 Problemy jakościowe produktu, zgodności zamówienia i transportu stanowią istotną część zgłoszeń. Dalsza analiza powinna połączyć powody zwrotów z konkretnymi produktami, dostawcami i kanałami.
 
