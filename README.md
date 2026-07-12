@@ -51,10 +51,10 @@ Model składa się z czterech tabel faktów oraz wspólnych wymiarów. Relacje m
 
 Główne tabele:
 
-- `FAKT_Sprzedaz` — pozycje sprzedażowe,
-- `FAKT_Budzet` — miesięczne plany według kategorii i kanału,
-- `FAKT_Zwroty` — zwroty i reklamacje,
-- `FAKT_Magazyn` — stany produktów w magazynach,
+- `FAKT_Sprzedaz` - pozycje sprzedażowe,
+- `FAKT_Budzet` - miesięczne plany według kategorii i kanału,
+- `FAKT_Zwroty` - zwroty i reklamacje,
+- `FAKT_Magazyn` - stany produktów w magazynach,
 - `DIM_Data`, `DIM_PRODUKTY`, `DIM_KLIENCI`, `DIM_Kategoria`, `DIM_Kanal` — tabele opisowe i filtrujące.
 
 Szczegóły relacji: [`documentation/model-danych.md`](documentation/model-danych.md).
