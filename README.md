@@ -152,4 +152,4 @@ Po przeniesieniu repozytorium na inny komputer Power Query może poprosić o wsk
 
 ## Autor
 
-Oskar Kowalczyk — projekt portfolio przygotowany pod stanowiska juniorskie związane z analizą danych, controllingiem i raportowaniem biznesowym.
+Oskar Kowalczyk
