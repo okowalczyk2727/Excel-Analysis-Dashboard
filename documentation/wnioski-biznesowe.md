@@ -1,19 +1,40 @@
 # Wnioski biznesowe
 
-## Wynik całego okresu
+## 1. Wynik operacyjny dashboardu
 
-- Przychód zrealizowany wyniósł **3 536 247,41 zł**.
-- Po uwzględnieniu zwrotów przychód wyniósł **3 449 254,06 zł**.
-- Kwota zwrotów uwzględniona w KPI wyniosła **86 993,35 zł**, czyli około **2,46% przychodu zrealizowanego**.
-- Marża wyniosła **1 332 828,26 zł**, co odpowiada marży procentowej na poziomie **37,69%**.
-- Zrealizowano **1 313 zamówień**, a średnia wartość zamówienia wyniosła **2 693,26 zł**.
-- Budżet sprzedaży wynosił **5 784 080,94 zł**. Jego realizacja osiągnęła **61,14%**, co oznacza odchylenie w wysokości **−2 247 833,53 zł**.
+Dashboard operacyjny pokazuje 3 536 247,41 zł przychodu i 5 784 080,94 zł budżetu. Realizacja planu wynosi 61,14%, a luka 2 247 833,53 zł.
 
-Marża procentowa całego okresu wyniosła **37,69%**. Największe odchylenie od założeń dotyczy więc poziomu przychodów względem budżetu, a nie braku dodatniej marży na sprzedaży.
+| Wskaźnik | Wynik |
+| --- | ---: |
+| Przychód zrealizowany | 3 536 247,41 zł |
+| Przychód po zwrotach | 3 449 254,06 zł |
+| Marża | 1 332 828,26 zł |
+| Marża procentowa | 37,69% |
+| Liczba zamówień | 1 313 |
+| Średnia wartość zamówienia | 2 693,26 zł |
+| Budżet | 5 784 080,94 zł |
+| Realizacja budżetu | 61,14% |
+| Kwota zwrotów w KPI | 86 993,35 zł |
 
-## Wyniki w czasie
+Marża sprzedaży jest dodatnia, ale przychód nie osiąga poziomu założonego w budżecie. Głównym problemem jest więc skala sprzedaży i realność planu, a nie sam brak marży brutto.
 
-| Miesiąc | Przychód | Realizacja budżetu |
+## 2. Wynik po kontrolach
+
+Model finansowy korzysta z pełnego uzgodnienia źródła i wyłącza rekordy `KONTROLA_*`. Po tej korekcie przychód 2025 wynosi 3 514 692,03 zł, a czysty budżet 5 462 374,78 zł. Realizacja wynosi 64,34%.
+
+| Wskaźnik | Wynik |
+| --- | ---: |
+| Przychód po kontrolach | 3 514 692,03 zł |
+| Wpływ wyłączeń sprzedaży | 54 824,21 zł |
+| Czysty budżet | 5 462 374,78 zł |
+| Realizacja czystego budżetu | 64,34% |
+| Luka do czystego budżetu | 1 947 682,75 zł |
+
+Wartości z obu skoroszytów nie powinny być porównywane bez sprawdzenia definicji zakresu. Dashboard opiera się na miarach DAX i filtrach operacyjnych, a model finansowy na uzgodnieniu pełnego źródła oraz jawnych wyłączeniach kontrolnych.
+
+## 3. Wyniki w czasie
+
+| Miesiąc | Przychód operacyjny | Realizacja budżetu |
 | --- | ---: | ---: |
 | Styczeń | 264 509,59 zł | 69,48% |
 | Luty | 292 596,91 zł | 76,53% |
@@ -28,9 +49,9 @@ Marża procentowa całego okresu wyniosła **37,69%**. Największe odchylenie od
 | Listopad | 307 990,59 zł | 49,70% |
 | Grudzień | 232 466,78 zł | 37,19% |
 
-Najwyższy miesięczny przychód osiągnięto we **wrześniu**, a najlepszą realizację budżetu w **lutym**. Najsłabszy wynik wystąpił w **grudniu**. Wyraźny spadek realizacji planu w listopadzie i grudniu wynika z połączenia wysokich budżetów końcoworocznych z brakiem odpowiedniego wzrostu sprzedaży.
+Najwyższy miesięczny przychód wystąpił we wrześniu. Najlepszą realizację budżetu osiągnięto w lutym, a najsłabszą w grudniu. Budżet rośnie mocno w listopadzie i grudniu, ale sprzedaż nie rośnie w podobnym tempie. Należy sprawdzić, czy plan końca roku opierał się na konkretnym pipeline sprzedaży, sezonowości i zaplanowanych kampaniach.
 
-## Kategorie
+## 4. Kategorie
 
 | Kategoria | Przychód | Marża | Marża % | Realizacja budżetu |
 | --- | ---: | ---: | ---: | ---: |
@@ -40,11 +61,11 @@ Najwyższy miesięczny przychód osiągnięto we **wrześniu**, a najlepszą rea
 | Sport i turystyka | 670 892,15 zł | 252 781,06 zł | 37,68% | 78,43% |
 | Uroda i zdrowie | 606 800,37 zł | 222 902,36 zł | 36,73% | 70,78% |
 
-Największy przychód oraz najwyższą marżę procentową osiągnęła kategoria **Dom i kuchnia**. Najlepiej względem planu wypadły **Sport i turystyka** oraz **Biuro**.
+Dom i kuchnia generuje najwyższy przychód i najwyższą marżę procentową. Sport i turystyka oraz Biuro najlepiej realizują budżet.
 
-Największym problemem jest **Elektronika**. Mimo drugiego najwyższego przychodu kategoria zrealizowała tylko **40,38% budżetu**, a jej luka do planu wyniosła około **1,09 mln zł**. Może to wskazywać na zbyt ambitny budżet, niewystarczający wolumen sprzedaży albo nieskuteczną ofertę w stosunku do pozostałych kategorii.
+Elektronika wymaga osobnej analizy. Ma drugi najwyższy przychód, ale najniższą marżę procentową oraz realizację budżetu na poziomie 40,38%. Luka do planu wynosi około 1,09 mln zł. Do sprawdzenia są ceny, rabaty, koszt zakupu, dostępność produktów i sam poziom budżetu.
 
-## Kanały sprzedaży
+## 5. Kanały sprzedaży
 
 | Kanał | Przychód | Zamówienia | Średnia wartość zamówienia | Marża % | Realizacja budżetu |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -53,45 +74,59 @@ Największym problemem jest **Elektronika**. Mimo drugiego najwyższego przychod
 | Sklep stacjonarny | 548 903,27 zł | 266 | 2 063,55 zł | 38,75% | 44,65% |
 | Telefon/B2B | 858 255,33 zł | 119 | 7 212,23 zł | 36,13% | 213,14% |
 
-**Sklep online** odpowiadał za około **41,4% całego przychodu** i prawie **48,9% zamówień**, dlatego pozostaje podstawowym kanałem sprzedaży. Jednocześnie jego realizacja budżetu wyniosła tylko **52,98%**, co oznacza dużą niewykorzystaną skalę względem planu.
+Sklep online jest największym kanałem pod względem przychodu i liczby zamówień. Jednocześnie realizuje tylko 52,98% budżetu. Warto rozdzielić lukę na ruch, konwersję, liczbę transakcji, średnią wartość koszyka i koszt pozyskania klienta.
 
-**Telefon/B2B** jako jedyny kanał przekroczył budżet. Wysoki wynik został osiągnięty dzięki średniej wartości zamówienia ponad trzykrotnie wyższej niż w pozostałych kanałach. Kanał ma potencjał rozwojowy, ale jego marża procentowa (**36,13%**) jest najniższa spośród kanałów, dlatego skalowanie sprzedaży B2B powinno uwzględniać kontrolę rabatów i kosztów obsługi dużych zamówień.
+Telefon/B2B jako jedyny kanał przekracza plan. Wynik opiera się na wysokiej średniej wartości zamówienia, ale marża procentowa 36,13% jest najniższa wśród kanałów. Rozwój B2B wymaga kontroli rabatów, kosztów obsługi i koncentracji klientów.
 
-Najniższą realizację planu osiągnął **sklep stacjonarny** (**44,65%**), a następnie **marketplace** (**47,89%**). W tych kanałach należy zweryfikować zarówno realność budżetu, jak i czynniki ograniczające liczbę lub wartość transakcji.
+Sklep stacjonarny i marketplace mają realizację poniżej 50%. W obu przypadkach należy porównać potencjał kanału z przyjętym budżetem oraz sprawdzić liczbę transakcji i średnią wartość zamówienia.
 
-## Zwroty i reklamacje
+## 6. Zwroty i reklamacje
 
-W danych znajduje się **177 zgłoszeń** o łącznej wartości **123 605,28 zł**. Kwota samych zwrotów uwzględniona w głównych KPI wynosi **86 993,35 zł**.
+W analizie powodów znajduje się 177 zgłoszeń o łącznej wartości 123 605,28 zł. Kwota zwrotów ujęta w głównych KPI wynosi 86 993,35 zł. Różnica wynika z zakresu miary, która uwzględnia tylko określony typ zgłoszenia.
 
-| Powód zgłoszenia | Liczba zgłoszeń | Kwota zgłoszeń |
+| Powód | Liczba zgłoszeń | Wartość zgłoszeń |
 | --- | ---: | ---: |
 | Zmiana decyzji | 32 | 22 187,67 zł |
 | Wadliwy produkt | 31 | 20 441,95 zł |
 | Uszkodzone w transporcie | 29 | 19 181,40 zł |
-| Błędny rozmiar/model | 29 | 19 802,10 zł |
+| Błędny rozmiar lub model | 29 | 19 802,10 zł |
 | Opóźniona dostawa | 28 | 19 827,81 zł |
 | Niezgodność z opisem | 17 | 13 757,08 zł |
 | Inne | 11 | 8 407,27 zł |
 
-<<<<<<< HEAD
-Najczęstszym pojedynczym powodem była **zmiana decyzji klienta**, ale zgłoszenia związane z jakością produktu, zgodnością zamówienia, transportem i dostawą stanowią łącznie większą część problemów. Dalsza analiza powinna powiązać zgłoszenia z produktami, dostawcami i kanałami, aby oddzielić problemy operacyjne od naturalnych zwrotów konsumenckich.
-=======
-1. zmiana decyzji - 34,
-2. wadliwy produkt - 32,
-3. błędny rozmiar lub model - 32,
-4. uszkodzenie w transporcie - 30,
-5. opóźniona dostawa - 29.
->>>>>>> 8d31fb8373004ecaace4c75367ca750d3a722f17
+Najczęstszym pojedynczym powodem jest zmiana decyzji klienta. Zgłoszenia związane z produktem, opisem, transportem i dostawą stanowią jednak większą część problemów. W dalszej analizie należy połączyć zwroty z produktami, dostawcami i kanałami, aby oddzielić naturalne zwroty konsumenckie od błędów operacyjnych.
 
-## Wnioski i rekomendacje
+## 7. Plan 2026 i płynność
 
-1. **Zweryfikować założenia budżetowe.** Łączna realizacja planu na poziomie 61,14%, a szczególnie wyniki Elektroniki i kanałów masowych, wskazują, że część budżetów mogła być zbyt wysoka w stosunku do realnego potencjału sprzedaży.
-2. **Rozwijać Telefon/B2B z kontrolą rentowności.** Kanał wyraźnie przekroczył plan i generuje wysoką wartość pojedynczego zamówienia, ale ma najniższą marżę procentową.
-3. **Zidentyfikować źródło luki w sklepie online.** Jest to największy kanał pod względem przychodu i liczby zamówień, dlatego należy sprawdzić osobno liczbę transakcji, średnią wartość koszyka oraz realność przyjętego budżetu.
-4. **Przeanalizować Elektronikę.** Kategoria generuje wysoki przychód, ale ma najniższą marżę procentową i największe odchylenie od budżetu.
-5. **Zweryfikować plany końcoworoczne.** W listopadzie i grudniu budżety były najwyższe, ale sprzedaż nie wzrosła proporcjonalnie. Należy ocenić, czy problem wynikał z nierealnego planu, czy z niewystarczających działań sprzedażowych.
-6. **Rozdzielić zwroty konsumenckie od problemów operacyjnych.** Ułatwi to ocenę, które zgłoszenia można ograniczyć przez poprawę jakości produktu, logistyki lub opisu oferty.
+Scenariusz bazowy zakłada wzrost przychodu o 7,12% względem wykonania po kontrolach.
+
+| Wskaźnik 2026 | Bazowy | Optymistyczny | Pesymistyczny |
+| --- | ---: | ---: | ---: |
+| Przychód brutto | 3 764 938,10 zł | 4 249 614,13 zł | 2 922 817,89 zł |
+| EBITDA | 259 433,56 zł | 518 005,60 zł | -204 354,70 zł |
+| Marża EBITDA | 7,08% | 12,52% | -7,18% |
+| Zysk netto | 87 493,68 zł | 296 937,04 zł | -361 771,36 zł |
+| FCF po odsetkach | -130 088,58 zł | 135 472,13 zł | -652 030,98 zł |
+| Gotówka końcowa | 369 911,42 zł | 635 472,13 zł | -152 030,98 zł |
+
+Scenariusz bazowy daje dodatni wynik operacyjny i dodatni zysk netto, ale FCF po odsetkach pozostaje ujemny. Przyczyną jest łączne zaangażowanie gotówki w kapitał obrotowy, CAPEX i finansowanie.
+
+Scenariusz pesymistyczny prowadzi do ujemnej EBITDA i ujemnej gotówki końcowej. Oznacza to, że spadek sprzedaży wymaga wcześniejszej reakcji, zanim pojawi się problem z płynnością.
+
+## 8. Działania
+
+| Priorytet | Działanie | Wskaźnik | Częstotliwość |
+| ---: | --- | --- | --- |
+| 1 | Przebudować budżet sprzedaży w podziale na kanały i miesiące | realizacja budżetu, luka przychodowa | miesięcznie |
+| 2 | Rozdzielić lukę sklepu online na ruch, konwersję, zamówienia i koszyk | przychód, zamówienia, AOV | tygodniowo |
+| 3 | Sprawdzić ceny, rabaty i koszt zakupu w Elektronice | marża kategorii, realizacja budżetu | miesięcznie |
+| 4 | Rozwijać B2B z limitem rabatów i koncentracji klientów | marża kanału, udział największych klientów | miesięcznie |
+| 5 | Oddzielić zwroty konsumenckie od błędów produktu i logistyki | liczba i wartość zgłoszeń | miesięcznie |
+| 6 | Wprowadzić limity DSO, zapasu i CAPEX | FCF, NWC, gotówka końcowa | miesięcznie |
+| 7 | Ustalić próg ostrzegawczy dla scenariusza pesymistycznego | EBITDA i gotówka końcowa | przy aktualizacji forecastu |
 
 ## Wniosek końcowy
 
-Projekt pokazuje firmę z dodatnią marżą, ale z wyraźnym problemem realizacji planu sprzedażowego. Dane wskazują, że największy potencjał poprawy wyniku znajduje się w dalszej analizie kanału Telefon/B2B, ograniczeniu luki sklepu online oraz korekcie założeń dla Elektroniki i kanałów o najniższej realizacji budżetu. Równolegle należy kontrolować rentowność B2B i ograniczać operacyjne przyczyny zwrotów.
+Firma utrzymuje dodatnią marżę na sprzedaży, ale nie realizuje budżetu przychodowego. Największy potencjał poprawy dotyczy sklepu online, Elektroniki oraz dalszego rozwoju B2B przy zachowaniu kontroli rentowności.
+
+Plan bazowy na 2026 rok poprawia wynik operacyjny, ale nadal zużywa gotówkę. Decyzje sprzedażowe powinny być oceniane razem z wpływem na kapitał obrotowy, CAPEX i płynność. Model jest technicznie spójny, jednak akceptacja założeń wymaga decyzji biznesowej.

@@ -1,25 +1,91 @@
-# Analiza sprzedaży i budżetu w Excelu
+# Analiza sprzedaży i model finansowo-controllingowy w Excelu
 
-![Dashboard projektu](screenshots/dashboard.png)
+![Panel zarządczy modelu finansowego](screenshots/panel-zarzadczy.png)
 
-Projekt przedstawia pełny proces pracy z danymi sprzedażowymi w Excelu: od surowego, celowo zabrudzonego pliku, przez transformacje Power Query i model Power Pivot, po miary DAX, tabele przestawne oraz interaktywny dashboard.
+Projekt łączy dwa skoroszyty pracujące na tym samym materiale źródłowym. Pierwszy służy do analizy sprzedaży, budżetu, marży, zwrotów i zapasów. Drugi rozwija wynik operacyjny do planu finansowego na 2026 rok, rachunku wyników, przepływów pieniężnych, kapitału obrotowego i scenariuszy.
 
-Dane są syntetyczne, ale zostały przygotowane tak, aby przypominały materiały spotykane w pracy analityka: niespójne nazwy, różne formaty liczb i dat, braki danych, błędne kody produktów oraz rekordy wymagające kontroli biznesowej.
+Dane są syntetyczne. Zostały przygotowane tak, aby odwzorować problemy spotykane przy pracy z raportami sprzedażowymi: różne formaty, braki, niejednolite słowniki i rekordy wymagające decyzji biznesowej.
 
-## Co zrobiłem w projekcie
+## Pliki projektu
 
-- oczyściłem i ujednoliciłem dane w Power Query,
-- przygotowałem tabele faktów i wymiarów,
-- zbudowałem model danych w układzie gwiazdy,
-- połączyłem sprzedaż z klientami, produktami, kalendarzem, kategoriami i kanałami,
-- utworzyłem miary DAX dla sprzedaży, marży, budżetu i zwrotów,
-- przygotowałem osobne analizy czasu, kategorii, kanałów, zwrotów i magazynu,
-- zbudowałem dashboard sterowany fragmentatorami i osią czasu,
-- zachowałem arkusze kontroli jakości, aby problemy źródłowe były widoczne i możliwe do audytu.
+| Plik | Zastosowanie |
+| --- | --- |
+| [`project/Analiza_Sprzedazy_Excel.xlsx`](project/Analiza_Sprzedazy_Excel.xlsx) | Power Query, Power Pivot, DAX, analizy operacyjne i dashboard |
+| [`project/Model_Finansowo_Controllingowy.xlsx`](project/Model_Finansowo_Controllingowy.xlsx) | wykonanie 2025 po kontrolach, budżet, plan 2026, P&L, cash flow i scenariusze |
+| [`data/Dane_surowe_projekt_Excel.xlsx`](data/Dane_surowe_projekt_Excel.xlsx) | niezmienione dane źródłowe do skoroszytu analitycznego |
 
-## Najważniejsze wyniki
+## Co zostało wykonane
 
-Wartości dla pełnego zakresu danych z 2025 roku zapisanych w skoroszycie:
+- oczyszczenie i ujednolicenie danych w Power Query,
+- tabele faktów i wymiarów w modelu gwiazdy,
+- relacje Power Pivot oraz miary DAX,
+- analizy czasu, kategorii, kanałów, zwrotów i magazynu,
+- dashboard z fragmentatorami kategorii i kanału oraz osią czasu,
+- jawne wyłączenia rekordów `KONTROLA_*`, bez usuwania śladu audytowego,
+- budżet i plan finansowy w podziale na miesiące,
+- rachunek wyników, zatrudnienie, OPEX, CAPEX i amortyzacja,
+- kapitał obrotowy, przepływy pieniężne i stan gotówki,
+- analiza ceny, wolumenu i miksu,
+- próg rentowności i trzy scenariusze,
+- 20 kontroli spójności modelu.
+
+## Najważniejsze wyniki modelu finansowego
+
+Poniższe wartości dotyczą scenariusza bazowego. Wykonanie 2025 i budżet 2025 są pokazane po wyłączeniu rekordów ujętych w arkuszach `KONTROLA_*`.
+
+| Wskaźnik | Wynik |
+| --- | ---: |
+| Przychód po kontrolach 2025 | 3 514 692,03 zł |
+| Czysty budżet 2025 | 5 462 374,78 zł |
+| Realizacja budżetu 2025 | 64,34% |
+| Plan przychodu 2026 | 3 764 938,10 zł |
+| Wzrost planu względem 2025 | 7,12% |
+| EBITDA 2026 | 259 433,56 zł |
+| Marża EBITDA 2026 | 7,08% |
+| FCF po odsetkach | -130 088,58 zł |
+| Gotówka końcowa | 369 911,42 zł |
+| Kontrole modelu | 20 PASS, 0 FAIL |
+
+## Wnioski
+
+1. Wykonanie po kontrolach pokrywa 64,34% czystego budżetu. Luka wynosi 1,95 mln zł, dlatego plan sprzedaży wymaga rozbicia na kanały, miesiące i właścicieli działań.
+2. Telefon/B2B przekracza własny budżet, podczas gdy kanały masowe pozostają poniżej planu. Rozwój B2B powinien iść razem z kontrolą rabatów, marży i koncentracji klientów.
+3. Sklep online jest największym kanałem, ale nie realizuje założonego budżetu. Lukę warto analizować osobno przez ruch, konwersję, liczbę zamówień i średnią wartość koszyka.
+4. Elektronika ma najsłabszą marżę wśród kategorii oraz największą lukę do budżetu w raporcie operacyjnym. Do sprawdzenia są ceny, rabaty, koszt zakupu i realność planu.
+5. Scenariusz bazowy daje dodatnią EBITDA, ale ujemny FCF po odsetkach. Wzrost angażuje gotówkę w kapitał obrotowy i CAPEX, więc sama rentowność operacyjna nie wystarcza do oceny płynności.
+6. W scenariuszu pesymistycznym gotówka końcowa spada do -152,03 tys. zł. Model wskazuje potrzebę limitów DSO, zapasu i CAPEX oraz wcześniejszej reakcji na spadek sprzedaży.
+
+Szczegółowe liczby i rekomendacje znajdują się w pliku [`documentation/wnioski-biznesowe.md`](documentation/wnioski-biznesowe.md).
+
+## Trzy scenariusze 2026
+
+| Wskaźnik | Bazowy | Optymistyczny | Pesymistyczny |
+| --- | ---: | ---: | ---: |
+| Przychód brutto | 3 764 938,10 zł | 4 249 614,13 zł | 2 922 817,89 zł |
+| EBITDA | 259 433,56 zł | 518 005,60 zł | -204 354,70 zł |
+| Marża EBITDA | 7,08% | 12,52% | -7,18% |
+| FCF po odsetkach | -130 088,58 zł | 135 472,13 zł | -652 030,98 zł |
+| Gotówka końcowa | 369 911,42 zł | 635 472,13 zł | -152 030,98 zł |
+
+![Porównanie scenariuszy](screenshots/scenariusze.png)
+
+## Zakresy raportowania
+
+Skoroszyt analityczny i model finansowy mają różne zadania, dlatego ich wartości sprzedaży i budżetu nie są identyczne.
+
+- Dashboard operacyjny korzysta z miar DAX i filtrów statusu, daty oraz relacji w modelu danych.
+- Model finansowy zaczyna od uzgodnionych agregatów źródłowych, a następnie wyłącza wszystkie rekordy pokazane w arkuszach `KONTROLA_*`.
+- Różnice nie zostały ręcznie wyrównane. Ich pochodzenie jest opisane w arkuszach `00_INSTRUKCJA`, `05_WYLACZENIA_KONTROLNE` i `25_ZRODLA_I_WNIOSKI`.
+
+Dokładne zasady zakresu opisuje plik [`documentation/zakres-danych-i-ograniczenia.md`](documentation/zakres-danych-i-ograniczenia.md).
+
+## Dashboard sprzedażowy
+
+![Dashboard sprzedażowy](screenshots/dashboard.png)
+
+Dashboard pokazuje przychód, przychód po zwrotach, marżę, budżet, realizację planu i wartość zwrotów. Wykresy porównują miesiące, kategorie, kanały i powody zgłoszeń. Fragmentatory oraz oś czasu działają w Microsoft Excel Desktop.
+
+Wartości dla zakresu operacyjnego dashboardu:
 
 | Wskaźnik | Wynik |
 | --- | ---: |
@@ -27,90 +93,29 @@ Wartości dla pełnego zakresu danych z 2025 roku zapisanych w skoroszycie:
 | Przychód po zwrotach | 3 449 254,06 zł |
 | Marża | 1 332 828,26 zł |
 | Marża procentowa | 37,69% |
-| Liczba zrealizowanych zamówień | 1 313 |
-| Średnia wartość zamówienia | 2 693,26 zł |
-| Budżet sprzedaży | 5 784 080,94 zł |
+| Liczba zamówień | 1 313 |
+| Budżet | 5 784 080,94 zł |
 | Realizacja budżetu | 61,14% |
-| Odchylenie od budżetu | −2 247 833,53 zł |
-| Kwota zwrotów uwzględniona w KPI | 86 993,35 zł |
-
-## Krótkie wnioski
-
-- Sprzedaż osiągnęła **61,14% budżetu**, co oznacza lukę w wysokości **2,25 mln zł**. Przy marży procentowej **37,69%** główne odchylenie od planu dotyczy poziomu przychodów.
-- Największy przychód wygenerowała kategoria **Dom i kuchnia**: **806,7 tys. zł**. Kategoria ta miała również najwyższą marżę procentową: **39,41%**.
-- Najlepszą realizację budżetu wśród kategorii osiągnęły **Sport i turystyka** (**78,43%**) oraz **Biuro** (**76,73%**). Największa luka wystąpiła w **Elektronice**, która zrealizowała **40,38%** planu i była około **1,09 mln zł** poniżej budżetu.
-- **Sklep online** był największym kanałem sprzedaży: **1,46 mln zł** przychodu i **642 zamówienia**, ale zrealizował tylko **52,98% budżetu**.
-- **Telefon/B2B** jako jedyny kanał przekroczył plan, osiągając **213,14% budżetu**. Kanał odpowiadał za **858,3 tys. zł** przychodu przy zaledwie **119 zamówieniach**, a średnia wartość zamówienia wyniosła **7 212,23 zł**.
-- Najwyższy miesięczny przychód odnotowano we **wrześniu** (**353,7 tys. zł**), natomiast najsłabszą realizację budżetu w **grudniu** (**37,19%**). Wysokie plany na listopad i grudzień nie znalazły pokrycia w sprzedaży.
-- W danych znajduje się **177 zgłoszeń** o łącznej wartości **123,6 tys. zł**. Najczęstszymi powodami były zmiana decyzji klienta oraz wadliwy produkt. Kwota zwrotów uwzględniona w głównych KPI stanowiła około **2,46% przychodu**.
-
-Szczegółowe omówienie znajduje się w pliku [`documentation/wnioski-biznesowe.md`](documentation/wnioski-biznesowe.md).
 
 ## Model danych
 
-Model składa się z czterech tabel faktów oraz wspólnych wymiarów. Relacje mają kardynalność jeden-do-wielu, a filtrowanie przebiega od tabel `DIM` do tabel `FAKT`.
+Model analityczny ma cztery tabele faktów i wspólne wymiary. Relacje prowadzą od tabel `DIM` do tabel `FAKT`.
 
 ![Model danych Power Pivot](screenshots/model-danych.png)
 
 Główne tabele:
 
-- `FAKT_Sprzedaz` - pozycje sprzedażowe,
-- `FAKT_Budzet` - miesięczne plany według kategorii i kanału,
-- `FAKT_Zwroty` - zwroty i reklamacje,
-- `FAKT_Magazyn` - stany produktów w magazynach,
-- `DIM_Data`, `DIM_PRODUKTY`, `DIM_KLIENCI`, `DIM_Kategoria`, `DIM_Kanal` — tabele opisowe i filtrujące.
+- `FAKT_Sprzedaz`,
+- `FAKT_Budzet`,
+- `FAKT_Zwroty`,
+- `FAKT_Magazyn`,
+- `DIM_Data`,
+- `DIM_PRODUKTY`,
+- `DIM_KLIENCI`,
+- `DIM_Kategoria`,
+- `DIM_Kanal`.
 
-Szczegóły relacji: [`documentation/model-danych.md`](documentation/model-danych.md).
-
-## Dashboard i analizy
-
-Dashboard zawiera:
-
-- KPI sprzedażowe i budżetowe,
-- sprzedaż oraz budżet w kolejnych miesiącach,
-- porównanie kategorii,
-- wyniki kanałów sprzedaży,
-- analizę powodów zwrotów i reklamacji,
-- fragmentatory kategorii i kanału oraz oś czasu.
-
-Poniżej znajdują się dodatkowe widoki tabel analitycznych zapisanych w skoroszycie.
-
-### Analiza czasu
-
-![Analiza sprzedaży w czasie](screenshots/analiza-czas.png)
-
-### Analiza kategorii
-
-![Analiza kategorii](screenshots/analiza-kategorie.png)
-
-### Analiza kanałów
-
-![Analiza kanałów](screenshots/analiza-kanaly.png)
-
-Pełny zestaw podglądów znajduje się w katalogu [`screenshots`](screenshots/).
-
-## Zakres danych źródłowych
-
-| Obszar | Zakres w pliku źródłowym |
-| --- | ---: |
-| Wiersze sprzedaży | ok. 2 500 |
-| Produkty | ok. 90 |
-| Klienci | ponad 430 |
-| Zwroty i reklamacje | ok. 190 |
-| Budżet | ok. 240 rekordów |
-| Stany magazynowe | ok. 270 rekordów |
-
-Plik źródłowy znajduje się w katalogu [`data`](data/). Zawiera dane celowo zabrudzone, dlatego częścią projektu są zarówno transformacje, jak i arkusze kontrolne.
-
-## Użyte narzędzia
-
-- Microsoft Excel Desktop,
-- Power Query,
-- Power Pivot,
-- DAX,
-- tabele i wykresy przestawne,
-- fragmentatory i oś czasu,
-- Git oraz GitHub.
+Opis relacji znajduje się w pliku [`documentation/model-danych.md`](documentation/model-danych.md).
 
 ## Struktura repozytorium
 
@@ -122,9 +127,15 @@ Excel-Analysis-Dashboard/
 │   └── README.md
 ├── project/
 │   ├── Analiza_Sprzedazy_Excel.xlsx
+│   ├── Model_Finansowo_Controllingowy.xlsx
 │   └── README.md
 ├── screenshots/
 │   ├── dashboard.png
+│   ├── panel-zarzadczy.png
+│   ├── rachunek-wynikow.png
+│   ├── scenariusze.png
+│   ├── prog-rentownosci.png
+│   ├── kontrole-modelu.png
 │   ├── model-danych.png
 │   ├── analiza-czas.png
 │   ├── analiza-kategorie.png
@@ -133,24 +144,28 @@ Excel-Analysis-Dashboard/
     ├── przygotowanie-danych.md
     ├── model-danych.md
     ├── miary-dax.md
+    ├── model-finansowo-controllingowy.md
+    ├── zakres-danych-i-ograniczenia.md
     └── wnioski-biznesowe.md
 ```
 
 ## Jak uruchomić projekt
 
 1. Pobierz repozytorium lub sklonuj je lokalnie.
-2. Otwórz [`project/Analiza_Sprzedazy_Excel.xlsx`](project/Analiza_Sprzedazy_Excel.xlsx) w programie Microsoft Excel Desktop.
-3. Przejdź do arkusza `DASHBOARD`.
-4. Użyj fragmentatorów i osi czasu do filtrowania raportu.
-5. Aby przejrzeć model, wybierz **Power Pivot → Manage → Diagram View**.
+2. Otwórz pliki z katalogu [`project`](project/) w Microsoft Excel Desktop dla Windows.
+3. W skoroszycie analitycznym przejdź do arkusza `DASHBOARD`.
+4. W modelu finansowym zacznij od `00_INSTRUKCJA`, następnie sprawdź `23_PANEL_ZARZADCZY` i `24_KONTROLE_MODELU`.
+5. Przy odświeżaniu Power Query wskaż lokalną ścieżkę do pliku z katalogu `data`, jeżeli Excel o nią poprosi.
 
-Po przeniesieniu repozytorium na inny komputer Power Query może poprosić o wskazanie nowej ścieżki do pliku źródłowego z katalogu `data`.
+Excel Online może wyświetlić część zawartości, ale nie obsługuje pełnego zakresu Power Pivot, DAX, fragmentatorów i osi czasu.
 
 ## Dokumentacja
 
-- [Przygotowanie i kontrola danych](documentation/przygotowanie-danych.md)
+- [Przygotowanie danych w Power Query](documentation/przygotowanie-danych.md)
 - [Model danych i relacje](documentation/model-danych.md)
 - [Miary DAX](documentation/miary-dax.md)
+- [Model finansowo-controllingowy](documentation/model-finansowo-controllingowy.md)
+- [Zakres danych i ograniczenia](documentation/zakres-danych-i-ograniczenia.md)
 - [Wnioski biznesowe](documentation/wnioski-biznesowe.md)
 
 ## Autor

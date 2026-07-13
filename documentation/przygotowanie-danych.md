@@ -49,7 +49,7 @@ Plik źródłowy zawiera dane syntetyczne, celowo przygotowane z problemami jako
 
 - ujednolicenie kategorii i kanałów,
 - utworzenie daty miesiąca jako pierwszego dnia danego miesiąca,
-- kontrola kompletności kombinacji miesiąc–kategoria–kanał.
+- kontrola kompletności kombinacji miesiąc, kategoria i kanał.
 
 ### Magazyn i zwroty
 
