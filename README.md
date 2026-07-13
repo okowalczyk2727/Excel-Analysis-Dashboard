@@ -1,6 +1,6 @@
 # Analiza sprzedaży i budżetu w Excelu
 
-![Dashboard projektu](screenshots/dashboard-interaktywny.png)
+![Dashboard projektu](screenshots/dashboard.png)
 
 Projekt przedstawia pełny proces pracy z danymi sprzedażowymi w Excelu: od surowego, celowo zabrudzonego pliku, przez transformacje Power Query i model Power Pivot, po miary DAX, tabele przestawne oraz interaktywny dashboard.
 
@@ -19,27 +19,30 @@ Dane są syntetyczne, ale zostały przygotowane tak, aby przypominały materiał
 
 ## Najważniejsze wyniki
 
-Wartości dla pełnego zakresu danych 2025 zapisanych w skoroszycie:
+Wartości dla pełnego zakresu danych z 2025 roku zapisanych w skoroszycie:
 
 | Wskaźnik | Wynik |
 | --- | ---: |
-| Przychód zrealizowany | 3 569 516,24 zł |
-| Przychód po zwrotach | 3 475 970,92 zł |
-| Marża | 1 344 537,37 zł |
-| Marża procentowa | 37,67% |
-| Liczba zrealizowanych zamówień | 1 318 |
-| Średnia wartość zamówienia | 2 708,28 zł |
-| Budżet sprzedaży | 5 904 080,94 zł |
-| Realizacja budżetu | 60,46% |
-| Kwota zwrotów | 93 545,32 zł |
+| Przychód zrealizowany | 3 536 247,41 zł |
+| Przychód po zwrotach | 3 449 254,06 zł |
+| Marża | 1 332 828,26 zł |
+| Marża procentowa | 37,69% |
+| Liczba zrealizowanych zamówień | 1 313 |
+| Średnia wartość zamówienia | 2 693,26 zł |
+| Budżet sprzedaży | 5 784 080,94 zł |
+| Realizacja budżetu | 61,14% |
+| Odchylenie od budżetu | −2 247 833,53 zł |
+| Kwota zwrotów uwzględniona w KPI | 86 993,35 zł |
 
 ## Krótkie wnioski
 
-- Największy przychód wygenerowała kategoria **Dom i kuchnia**: 808,5 tys. zł.
-- Najwyższą realizację budżetu wśród kategorii osiągnęło **Biuro**: 79,80%.
-- Kanał **Telefon/B2B** przekroczył budżet ponad dwukrotnie, osiągając 219,86% realizacji.
-- Największą skalę sprzedaży miał **Sklep online**: 1,47 mln zł, ale realizacja budżetu wyniosła 50,92%.
-- W tabeli zwrotów i reklamacji znajduje się 187 zgłoszeń; najczęstszym powodem była zmiana decyzji klienta.
+- Sprzedaż osiągnęła **61,14% budżetu**, co oznacza lukę w wysokości **2,25 mln zł**. Przy marży procentowej **37,69%** główne odchylenie od planu dotyczy poziomu przychodów.
+- Największy przychód wygenerowała kategoria **Dom i kuchnia**: **806,7 tys. zł**. Kategoria ta miała również najwyższą marżę procentową: **39,41%**.
+- Najlepszą realizację budżetu wśród kategorii osiągnęły **Sport i turystyka** (**78,43%**) oraz **Biuro** (**76,73%**). Największa luka wystąpiła w **Elektronice**, która zrealizowała **40,38%** planu i była około **1,09 mln zł** poniżej budżetu.
+- **Sklep online** był największym kanałem sprzedaży: **1,46 mln zł** przychodu i **642 zamówienia**, ale zrealizował tylko **52,98% budżetu**.
+- **Telefon/B2B** jako jedyny kanał przekroczył plan, osiągając **213,14% budżetu**. Kanał odpowiadał za **858,3 tys. zł** przychodu przy zaledwie **119 zamówieniach**, a średnia wartość zamówienia wyniosła **7 212,23 zł**.
+- Najwyższy miesięczny przychód odnotowano we **wrześniu** (**353,7 tys. zł**), natomiast najsłabszą realizację budżetu w **grudniu** (**37,19%**). Wysokie plany na listopad i grudzień nie znalazły pokrycia w sprzedaży.
+- W danych znajduje się **177 zgłoszeń** o łącznej wartości **123,6 tys. zł**. Najczęstszymi powodami były zmiana decyzji klienta oraz wadliwy produkt. Kwota zwrotów uwzględniona w głównych KPI stanowiła około **2,46% przychodu**.
 
 Szczegółowe omówienie znajduje się w pliku [`documentation/wnioski-biznesowe.md`](documentation/wnioski-biznesowe.md).
 
@@ -51,10 +54,10 @@ Model składa się z czterech tabel faktów oraz wspólnych wymiarów. Relacje m
 
 Główne tabele:
 
-- `FAKT_Sprzedaz` — pozycje sprzedażowe,
-- `FAKT_Budzet` — miesięczne plany według kategorii i kanału,
-- `FAKT_Zwroty` — zwroty i reklamacje,
-- `FAKT_Magazyn` — stany produktów w magazynach,
+- `FAKT_Sprzedaz` - pozycje sprzedażowe,
+- `FAKT_Budzet` - miesięczne plany według kategorii i kanału,
+- `FAKT_Zwroty` - zwroty i reklamacje,
+- `FAKT_Magazyn` - stany produktów w magazynach,
 - `DIM_Data`, `DIM_PRODUKTY`, `DIM_KLIENCI`, `DIM_Kategoria`, `DIM_Kanal` — tabele opisowe i filtrujące.
 
 Szczegóły relacji: [`documentation/model-danych.md`](documentation/model-danych.md).
@@ -121,7 +124,7 @@ Excel-Analysis-Dashboard/
 │   ├── Analiza_Sprzedazy_Excel.xlsx
 │   └── README.md
 ├── screenshots/
-│   ├── dashboard-interaktywny.png
+│   ├── dashboard.png
 │   ├── model-danych.png
 │   ├── analiza-czas.png
 │   ├── analiza-kategorie.png
